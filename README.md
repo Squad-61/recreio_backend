@@ -1,4 +1,4 @@
-# ReCreio Web Site
+# ReCreio Web Site - Back-End
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/squad-61/back-end?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/squad-61/back-end?style=for-the-badge)
@@ -11,7 +11,7 @@
 </div>
 
 <!-- Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler. -->
-> Buscamos auxiliar crianças 6 a 13 anos de idade a aprimorar e incentivar a pratica de leitura e escrita, através de jogos, aulas e atividades lúdicas e intuitivas, junto aos pais e professores.
+> Buscamos auxiliar crianças 6 a 13 anos de idade a aprimorar e incentivar a pratica de leitura e escrita, através de jogos, aulas e atividades lúdicas e intuitivas, junto aos pais e professores. <<old>>
 
 ### Ajustes e melhorias
 
@@ -40,7 +40,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
-* Navegador Google Chrome, Edge, Mozzila Fire Fox ou de sua preferencia.
+* Navegador Google Chrome, Edge, Mozzila Fire Fox ou de sua preferencia. <<old>>
 
 ## ☕ Acessando o Site da Recreio
 
