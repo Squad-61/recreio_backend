@@ -1,10 +1,10 @@
 # ReCreio Web Site - Back-End
 
-![GitHub repo size](https://img.shields.io/github/repo-size/squad-61/back-end?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/squad-61/back-end?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/squad-61/back-end?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/github/issues-raw/squad-61/back-end?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/github/issues-pr-raw/squad-61/back-end?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/squad-61/ReCreio_BackEnd?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/squad-61/ReCreio_BackEnd?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/squad-61/ReCreio_BackEnd?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/github/issues-raw/squad-61/ReCreio_BackEnd?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/github/issues-pr-raw/squad-61/ReCreio_BackEnd?style=for-the-badge)
 
 <div align="center">
   <img src=".github/brand.png" alt="Logo da ReCreio">
