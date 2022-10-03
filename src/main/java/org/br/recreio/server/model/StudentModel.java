@@ -4,16 +4,19 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.UUID;
 
-@Entity(name = "Student")
+@Entity(name = "student")
 public class StudentModel extends ProfileModel {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "idStudent", nullable = false)
+  @Column(name = "pkStudent", nullable = false)
   private UUID pkStudent;
-  
-  @OneToOne(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
-  @JoinColumn(name = "idProfile", table = "Profile")
+
+  @Column(name = "rm", nullable = false)
+  private String rm;
+
+  @OneToOne(cascade = {CascadeType.PERSIST})
+  @JoinColumn(name = "fkProfile", table = "profile")
   private ProfileModel profile;
 
   public UUID getPkStudent() {
@@ -24,31 +27,42 @@ public class StudentModel extends ProfileModel {
     this.pkStudent = pkStudent;
   }
 
+  public String getRm() {
+    return rm;
+  }
+
+  public void setRm(String rm) {
+    this.rm = rm;
+  }
+
   public ProfileModel getProfile() {
     return profile;
   }
 
-  public void setFkStudent(ProfileModel profile) {
+  public void setProfile(ProfileModel profile) {
     this.profile = profile;
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (!(obj instanceof StudentModel that)) return false;
-    return Objects.equals(getPkStudent(), that.getPkStudent()) && Objects.equals(getProfile(), that.getProfile());
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof StudentModel that)) return false;
+    if (!super.equals(o)) return false;
+    return Objects.equals(getPkStudent(), that.getPkStudent());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(getPkStudent(), getProfile());
+    return Objects.hash(super.hashCode(), getPkStudent());
   }
 
   @Override
   public String toString() {
     return "StudentModel{" +
       "pkStudent=" + pkStudent +
+      ", rm='" + rm + '\'' +
       ", profile=" + profile +
       '}';
   }
+
 }

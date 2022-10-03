@@ -4,20 +4,22 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.UUID;
 
-@Entity(name = "Teacher")
+@Entity(name = "teacher")
 public class TeacherModel  extends ProfileModel {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "idTeacher", nullable = false, updatable = false)
+  @Column(name = "pkTeacher", nullable = false, updatable = false)
   private UUID pkTeacher;
+
   @Column(name = "contrato", nullable = false)
   private String contractFile;
+
   @Column(name = "isVoluntary", nullable = false)
   private Boolean isVoluntary;
-  
+
   @OneToOne(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
-  @JoinColumn(name = "idProfile", table = "Profile")
+  @JoinColumn(name = "pkProfile", table = "profile")
   private ProfileModel profile;
 
   public UUID getPkTeacher() {
@@ -48,7 +50,7 @@ public class TeacherModel  extends ProfileModel {
     return profile;
   }
 
-  public void setIdProfile(ProfileModel profile) {
+  public void setProfile(ProfileModel profile) {
     this.profile = profile;
   }
 
@@ -74,4 +76,5 @@ public class TeacherModel  extends ProfileModel {
       ", profile=" + profile +
       '}';
   }
+  
 }
