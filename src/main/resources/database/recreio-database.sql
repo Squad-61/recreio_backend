@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS `recreio`;
+
 CREATE DATABASE IF NOT EXISTS `recreio`
 	DEFAULT CHARACTER SET utf8mb4
     DEFAULT COLLATE utf8mb4_general_ci;
@@ -20,6 +22,7 @@ CREATE TABLE IF NOT EXISTS `parent` (
 
 CREATE TABLE IF NOT EXISTS `student` (
 	pkStudent VARCHAR(256) NOT NULL,
+    rm VARCHAR(20) NOT NULL,
     fkProfile VARCHAR(256) NOT NULL,
     fkParent VARCHAR(256) NOT NULL
 );
@@ -54,9 +57,9 @@ VALUES
 SELECT * FROM recreio.parent;
 
 INSERT INTO recreio.student
-	(pkStudent, fkProfile, fkParent)
+	(pkStudent, rm, fkProfile, fkParent)
 VALUES
-	('1', '1', '1');
+	('1', '123-123-123', '1', '1');
 
 SELECT * FROM recreio.student;
 
