@@ -1,51 +1,45 @@
 package org.br.recreio.server.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity(name = "profile")
 public class ProfileModel {
-
+  
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "pkProfile", nullable = false, updatable = false)
-  private UUID pkProfile;
-
-  @Column(name = "cpf", nullable = false)
+  private Long pkProfile;
+  
   private String cpf;
-
-  @Column(name = "firthName", nullable = false)
+  
   private String firthName;
-
-  @Column(name = "lastName", nullable = false)
+  
   private String lastName;
-
-  @Column(name = "birthDay", nullable = false)
-  private String birthDay;
-
-  @Column(name = "email", nullable = false)
+  
+  private String birthday;
+  
   private String email;
-
-  @Column(name = "password", nullable = false)
+  
   private String passwd;
 
-  @Column(name = "createdAt", nullable = false)
-  private LocalDate dateCreated;
+//  @Column(name = "createdAt", nullable = false)
+//  private LocalDate dateCreated;
+//
+//  @Column(name = "updatedAt", nullable = false)
+//  private LocalDate dateUpdated;
 
-  @Column(name = "updatedAt", nullable = false)
-  private LocalDate dateUpdated;
-
+//  @OneToOne(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
+//  private TeacherModel teacher;
+  
   public ProfileModel() {
     super();
   }
 
-  public UUID getPkClient() {
+  public Long getPkClient() {
     return pkProfile;
   }
 
-  public void setPkClient(UUID pkProfile) {
+  public void setPkClient(Long pkProfile) {
     this.pkProfile = pkProfile;
   }
 
@@ -74,11 +68,11 @@ public class ProfileModel {
   }
 
   public String getBirthDay() {
-    return birthDay;
+    return birthday;
   }
 
-  public void setBirthDay(String birthDay) {
-    this.birthDay = birthDay;
+  public void setBirthDay(String birthday) {
+    this.birthday = birthday;
   }
 
   public String getEmail() {
@@ -95,21 +89,21 @@ public class ProfileModel {
 
   public void setPasswd(String passwd) { this.passwd = passwd; }
 
-  public LocalDate getDateCreated() {
-    return dateCreated;
-  }
-
-  public void setDateCreated(LocalDate dateCreated) {
-    this.dateCreated = dateCreated;
-  }
-
-  public LocalDate getDateUpdated() {
-    return dateUpdated;
-  }
-
-  public void setDateUpdated(LocalDate dateUpdated) {
-    this.dateUpdated = dateUpdated;
-  }
+//  public LocalDate getDateCreated() {
+//    return dateCreated;
+//  }
+//
+//  public void setDateCreated(LocalDate dateCreated) {
+//    this.dateCreated = dateCreated;
+//  }
+//
+//  public LocalDate getDateUpdated() {
+//    return dateUpdated;
+//  }
+//
+//  public void setDateUpdated(LocalDate dateUpdated) {
+//    this.dateUpdated = dateUpdated;
+//  }
 
   @Override
   public boolean equals(Object o) {
@@ -130,11 +124,11 @@ public class ProfileModel {
       ", cpf='" + cpf + '\'' +
       ", firthName='" + firthName + '\'' +
       ", lastName='" + lastName + '\'' +
-      ", birthDay='" + birthDay + '\'' +
+      ", birthday='" + birthday + '\'' +
       ", email='" + email + '\'' +
       ", passwd='" + passwd + '\'' +
-      ", dateCreatedAt" + dateCreated + '\'' +
-      ", dateUpdatedAt" + dateUpdated +  '\'' + 
+//      ", dateCreatedAt" + dateCreated + '\'' +
+//      ", dateUpdatedAt" + dateUpdated +  '\'' + 
       '}';
   }
 

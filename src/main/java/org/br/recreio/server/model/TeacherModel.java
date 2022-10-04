@@ -2,31 +2,25 @@ package org.br.recreio.server.model;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity(name = "teacher")
 public class TeacherModel  extends ProfileModel {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "pkTeacher", nullable = false, updatable = false)
-  private UUID pkTeacher;
+  private Long pkTeacher;
 
-  @Column(name = "contrato", nullable = false)
   private String contractFile;
 
-  @Column(name = "isVoluntary", nullable = false)
   private Boolean isVoluntary;
 
-  @OneToOne(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
-  @JoinColumn(name = "pkProfile", table = "profile")
   private ProfileModel profile;
 
-  public UUID getPkTeacher() {
+  public Long getPkTeacher() {
     return pkTeacher;
   }
 
-  public void setPkTeacher(UUID pkTeacher) {
+  public void setPkTeacher(Long pkTeacher) {
     this.pkTeacher = pkTeacher;
   }
 
@@ -59,12 +53,12 @@ public class TeacherModel  extends ProfileModel {
     if (this == obj) return true;
     if (!(obj instanceof TeacherModel that)) return false;
     if (!super.equals(obj)) return false;
-    return Objects.equals(getPkTeacher(), that.getPkTeacher()) && Objects.equals(getProfile(), that.getProfile());
+    return Objects.equals(getPkTeacher(), that.getPkTeacher());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode(), getPkTeacher(), getProfile());
+    return Objects.hash(super.hashCode(), getPkTeacher());
   }
 
   @Override
@@ -73,8 +67,7 @@ public class TeacherModel  extends ProfileModel {
       "pkTeacher=" + pkTeacher +
       ", contractFile='" + contractFile + '\'' +
       ", isVoluntary=" + isVoluntary +
-      ", profile=" + profile +
       '}';
   }
-  
+
 }

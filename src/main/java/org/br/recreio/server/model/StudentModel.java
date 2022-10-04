@@ -2,28 +2,38 @@ package org.br.recreio.server.model;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity(name = "student")
 public class StudentModel extends ProfileModel {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "pkStudent", nullable = false)
-  private UUID pkStudent;
+  private Long pkStudent;
 
   @Column(name = "rm", nullable = false)
   private String rm;
 
+  /**
+   * SQL CODE REFERENCE:
+   * CREATE TABLE `parent`  ( pkParent VARCHAR(256), ... , fkStudent VARCHAR(256) );
+   * CREATE TABLE `student` ( pkStudent VARCHAR(256), ... , fkParent VARCHAR(256) );
+   * ALTER TABLE `parent` ADD FOREIGN KEY `fkStudent` REFERENCES `student`(`pkStudent`);
+   * SELECT * FROM `parent`
+   */
   @OneToOne(cascade = {CascadeType.PERSIST})
   @JoinColumn(name = "fkProfile", table = "profile")
   private ProfileModel profile;
 
-  public UUID getPkStudent() {
+//  @OneToMany(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
+//  @JoinColumn(name = "fkStudent", table = "parent")
+//  private ParentModel parent;
+
+  public Long getPkStudent() {
     return pkStudent;
   }
 
-  public void setPkStudent(UUID pkStudent) {
+  public void setPkStudent(Long pkStudent) {
     this.pkStudent = pkStudent;
   }
 
@@ -43,6 +53,14 @@ public class StudentModel extends ProfileModel {
     this.profile = profile;
   }
 
+//  public ParentModel getParent() {
+//    return parent;
+//  }
+//
+//  public void setParent(ParentModel parent) {
+//    this.parent = parent;
+//  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -61,8 +79,7 @@ public class StudentModel extends ProfileModel {
     return "StudentModel{" +
       "pkStudent=" + pkStudent +
       ", rm='" + rm + '\'' +
-      ", profile=" + profile +
-      '}';
+   '}';
   }
 
 }

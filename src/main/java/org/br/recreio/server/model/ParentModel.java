@@ -3,15 +3,14 @@ package org.br.recreio.server.model;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity(name = "parent")
 public class ParentModel extends ProfileModel {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "pkParent", nullable = false)
-  private UUID pkParent;
+  private Long pkParent;
 
   @ManyToOne(cascade = {CascadeType.PERSIST})
   @JoinColumn(name = "pkStudent", table = "student")
@@ -21,32 +20,32 @@ public class ParentModel extends ProfileModel {
   @JoinColumn(name = "pkProfile", table = "profile")
   private ProfileModel profile;
 
-  public UUID getIdParent() {
+  public Long getIdParent() {
     return pkParent;
   }
 
-  public void setIdParent(UUID pkParent) {
+  public void setIdParent(Long pkParent) {
     this.pkParent = pkParent;
-  }
-
-  @OneToMany(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
-  @JoinColumn(name = "pkStudent", table = "student")
-  public List<StudentModel> getStudent() { return this.student; }
-
-  public void setStudent(List<StudentModel> student) {
-    this.student = student;
   }
 
   public ProfileModel getProfile() { return this.profile; }
 
   public void setProfile(ProfileModel profile) { this.profile = profile; }
 
-  public UUID getPkParent() {
+  public Long getPkParent() {
     return pkParent;
   }
 
-  public void setPkParent(UUID pkParent) {
+  public void setPkParent(Long pkParent) {
     this.pkParent = pkParent;
+  }
+
+  public List<StudentModel> getStudent() {
+    return student;
+  }
+
+  public void setStudent(List<StudentModel> student) {
+    this.student = student;
   }
 
   @Override
@@ -70,5 +69,5 @@ public class ParentModel extends ProfileModel {
       ", profile=" + profile +
       '}';
   }
-  
+
 }

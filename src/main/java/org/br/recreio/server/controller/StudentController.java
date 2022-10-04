@@ -5,21 +5,19 @@ import org.springframework.web.bind.annotation.*;
 import org.br.recreio.server.repository.IStudentRepository;
 
 @RestController
-@RequestMapping(name = "/student")
+@RequestMapping("/student")
 public class StudentController {
 
   private IStudentRepository repository;
 
-  @PutMapping("/v1/save")
-  public void putStudent(@RequestBody StudentModel data) { repository.save(data); }
-  
-  @GetMapping("/v1/find/{id}")
-  public void getStudent(@RequestBody StudentModel id) { repository.findById(id.getPkStudent()); }
-  
-  @DeleteMapping("/v1/{id}")
-  public void deleteStudent(@RequestBody StudentModel id) { repository.deleteById(id.getPkStudent()); }
-  
-//  @PostMapping("/v1/update")
-//  public void updateStudent(@RequestBody StudentModel data) { repository.save(data); }
-    
+  @PostMapping("/add")
+  public StudentModel postStudent(@RequestBody StudentModel student) {
+    return repository.save(student);
+  }
+
+  @GetMapping("/list")
+  public Iterable<StudentModel> getStudent() {
+    return repository.findAll();
+  }
+
 }

@@ -10,16 +10,14 @@ public class TeacherController {
 
   private ITeacherRepository repository;
 
-  @PutMapping("/v1/save")
-  public void putTeacher(@RequestBody TeacherModel data) { repository.save(data); }
-  
-  @GetMapping("/v1/find/{id}")
-  public void getTeacher(@RequestBody TeacherModel id) { repository.findById(id.getPkTeacher()); }
-  
-  @DeleteMapping("/v1/delete/{id}")
-  public void deleteTeacher(@RequestBody TeacherModel id) { repository.deleteById(id.getPkTeacher()); }
-  
-//  @PostMapping("/v1/update")
-//  public void updateTeacher(@RequestBody TeacherModel data) { repository.save(data); }
-  
+  @PostMapping("/add")
+  public TeacherModel postTeacher(@RequestBody TeacherModel teacher) {
+    return repository.save(teacher);
+  }
+
+  @GetMapping("/list")
+  public Iterable<TeacherModel> getTeacher() {
+    return repository.findAll();
+  }
+
 }
