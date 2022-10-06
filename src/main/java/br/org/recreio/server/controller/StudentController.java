@@ -2,7 +2,7 @@ package br.org.recreio.server.controller;
 
 import org.br.recreio.server.model.StudentModel;
 import org.springframework.web.bind.annotation.*;
-import org.br.recreio.server.repository.IStudentRepository;
+import br.org.recreio.server.repository.IStudentRepository;
 
 @RestController
 @RequestMapping("/student")
