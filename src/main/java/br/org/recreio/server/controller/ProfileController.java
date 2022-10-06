@@ -1,4 +1,4 @@
-package org.br.recreio.server.controller;
+package br.org.recreio.server.controller;
 
 import org.br.recreio.server.model.ProfileModel;
 import org.springframework.web.bind.annotation.*;
