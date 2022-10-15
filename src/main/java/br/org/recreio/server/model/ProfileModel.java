@@ -6,33 +6,39 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity(name = "profile")
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "profile")
+//@Entity
+//@Table(name = "Client")
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name = "profile")
+@MappedSuperclass
 public class ProfileModel implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private Integer idProfile;
+    @Column(name = "id", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idProfile;
 
+    @Column(nullable = false, unique = true)
     private String name;
 
+    @Column(nullable = false)
     @Temporal(value = TemporalType.DATE)
     private Date birthday;
 
+    @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
     private String passwd;
 
-    public Integer getPkProfile() {
+    public Long getPkProfile() {
         return this.idProfile;
     }
 
-    public void setPkProfile(Integer idProfile) {
+    public void setPkProfile(Long idProfile) {
         this.idProfile = idProfile;
     }
 
@@ -67,18 +73,7 @@ public class ProfileModel implements Serializable {
     public void setPasswd(String passwd) {
         this.passwd = passwd;
     }
-
-    @Override
-    public String toString() {
-        return "ProfileModel{" +
-                "idProfile=" + idProfile +
-                ", name='" + name +
-                ", birthday=" + birthday +
-                ", email='" + email +
-                ", passwd='" + passwd +
-                '}';
-    }
-
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -90,6 +85,18 @@ public class ProfileModel implements Serializable {
     public int hashCode() {
         return Objects.hash(idProfile);
     }
-
+  
+    @Override
+    public String toString() {
+      return '{' + '\n' +
+        "Profile:" + '{' + '\n' +
+          '\t' + "ID:" + '\t' + idProfile + "," + '\n' +
+          '\t' + "Name:" + '\t' + name + "," + '\n' +
+          '\t' + "Birthday:" + '\t' + birthday + "," + '\n' +
+          '\t' + "Email:" +'\t' +  email + "," + '\n' +
+          '\t' + "Passwd:" + '\t' + passwd + '\n' +
+        '}' + '\n' +
+      '}';
+    }
 }
 

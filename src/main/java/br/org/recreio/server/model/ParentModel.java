@@ -1,36 +1,54 @@
 package br.org.recreio.server.model;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serial;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity(name = "parent")
-@DiscriminatorColumn(name = "parent")
+@Entity
+@Table(name = "Parent")
+@DiscriminatorColumn(name = "Parent")
 public class ParentModel extends ProfileModel {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Integer cpf;
+    /**
+     * @apiNote This is a relationship of {@link StudentModel} with {@link ParentModel}
+     * @implNote Relationship of One to Many
+     **/
+    @OneToMany(targetEntity = StudentModel.class)
+    @JoinColumn(name = "idStudent")
+    public List<StudentModel> student = new ArrayList<>(); // One Parent as Many Dependents
 
-    public Integer getCpf() {
+    @Column(nullable = false, unique = true, length = 11)
+    private String cpf;
+
+    public String getCpf() {
         return this.cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public List<StudentModel> getStudent() {
+        return this.student;
+    }
+
+    public void setStudent(StudentModel student) {
+        this.student.add(student);
+    }
+
+    public void removeStudent(StudentModel student) {
+        this.student.remove(student);
     }
 
     @Override
     public String toString() {
-        return "ParentModel{" +
-                "idParent=" + super.getPkProfile() +
-                ", name=" + super.getName() +
-                ", cpf=" + cpf +
-                ", birthday" + super.getBirthday() +
-                ", email=" + super.getEmail() +
-                ", passwd=" + super.getPasswd() +
-                '}';
+        return "Name: " + super.getName() +
+                "E-mail: " + super.getEmail() +
+                "Birthday: " + super.getBirthday();
     }
 
 }
