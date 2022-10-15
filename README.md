@@ -13,28 +13,9 @@
 <!-- Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler. -->
 > Buscamos auxiliar crianças 6 a 13 anos de idade a aprimorar e incentivar a pratica de leitura e escrita, através de jogos, aulas e atividades lúdicas e intuitivas, junto aos pais e professores. <<old>>
 
-### Ajustes e melhorias
+### 🚧 Ajustes e melhorias
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
-
-- [ ] Back-End
-  - [ ] Documentação
-    - [ ] Diagrama de Banco de Dados
-      - [ ] Diagrama de Entidade de Relacionamento
-        - [ ] Modelo Conceitual
-        - [ ] Modelo Logico
-    - [ ] Diagrama de Linguagem de Modelagem Unificada
-      - [ ] Diagrama de Classe (Visão do Programador)
-      - [ ] Diagrama de Sequencia (Visão da Aplicação)
-      - [ ] Diagrama de Caso de Uso (Visão do Usuário)
-  - [ ] Desenvolvimento do Banco de Dados
-    - [ ] Normalização dos Modelos Conceitual e Logico
-    - [ ] Modelo Físico Normalizado
-  - [ ] Desenvolvimento do Back-End
-    - [ ] Java
-      - [ ] Spring Bot
-      - [ ] Hibernate
-
+O projeto ainda está em desenvolvimento.
         
 ## 💻 Pré-requisitos
 
