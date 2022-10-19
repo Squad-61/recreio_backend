@@ -73,7 +73,7 @@ public class ProfileModel implements Serializable {
     public void setPasswd(String passwd) {
         this.passwd = passwd;
     }
-    
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -85,18 +85,13 @@ public class ProfileModel implements Serializable {
     public int hashCode() {
         return Objects.hash(idProfile);
     }
-  
+
     @Override
     public String toString() {
-      return '{' + '\n' +
-        "Profile:" + '{' + '\n' +
-          '\t' + "ID:" + '\t' + idProfile + "," + '\n' +
-          '\t' + "Name:" + '\t' + name + "," + '\n' +
-          '\t' + "Birthday:" + '\t' + birthday + "," + '\n' +
-          '\t' + "Email:" +'\t' +  email + "," + '\n' +
-          '\t' + "Passwd:" + '\t' + passwd + '\n' +
-        '}' + '\n' +
-      '}';
+        return "UUID: " + this.getPkProfile() + '\n' +
+                "Name: " + this.getName() + '\n' +
+                "E-mail: " + this.getEmail() + '\n' +
+                "BirthDay: " + this.getBirthday();
     }
 }
 
