@@ -19,7 +19,7 @@ public class ParentModel extends ProfileModel {
      **/
     @OneToMany(targetEntity = StudentModel.class)
     @JoinColumn(name = "idStudent")
-    public List<StudentModel> student = new ArrayList<>(); // One Parent as Many Dependents
+    public List<StudentModel> student = new ArrayList<StudentModel>(); // One Parent as Many Dependents
 
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
