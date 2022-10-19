@@ -27,13 +27,9 @@ public class TeacherModel extends ProfileModel {
 
     @Override
     public String toString() {
-        return '{' + '\n' +
-                super.toString() + '\n' +
-                "Teacher:" + '{' +
-                '\t' + "ID:" + super.getPkProfile() + "," + '\n' +
-                '\t' + "isVoluntary:" + isVoluntary + '\n' +
-                '}' +
-                '}';
+        return "Name: " + super.getName() + '\n' +
+                "E-mail: " + super.getEmail() + '\n' +
+                "BirthDay: " + super.getBirthday();
     }
 
 }
