@@ -5,7 +5,6 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
-import java.util.UUID;
 
 @MappedSuperclass
 public class ProfileModel implements Serializable {
@@ -14,9 +13,9 @@ public class ProfileModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "id", nullable = false, unique = true, updatable = false)
+    @Column(name = "id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID idProfile = UUID.randomUUID();
+    private Long idProfile;
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -31,11 +30,11 @@ public class ProfileModel implements Serializable {
     @Column(nullable = false)
     private String passwd;
 
-    public UUID getPkProfile() {
+    public Long getPkProfile() {
         return this.idProfile;
     }
 
-    public void setPkProfile(UUID idProfile) {
+    public void setPkProfile(Long idProfile) {
         this.idProfile = idProfile;
     }
 
@@ -83,12 +82,5 @@ public class ProfileModel implements Serializable {
         return Objects.hash(idProfile);
     }
 
-    @Override
-    public String toString() {
-        return "UUID: " + this.getPkProfile() + '\n' +
-                "Name: " + this.getName() + '\n' +
-                "E-mail: " + this.getEmail() + '\n' +
-                "BirthDay: " + this.getBirthday();
-    }
 }
 
