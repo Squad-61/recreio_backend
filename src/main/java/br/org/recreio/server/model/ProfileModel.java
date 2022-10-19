@@ -5,11 +5,8 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
-//@Entity
-//@Table(name = "Client")
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-//@DiscriminatorColumn(name = "profile")
 @MappedSuperclass
 public class ProfileModel implements Serializable {
 
@@ -17,9 +14,9 @@ public class ProfileModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "id", nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProfile;
+    private UUID idProfile = UUID.randomUUID();
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -34,11 +31,11 @@ public class ProfileModel implements Serializable {
     @Column(nullable = false)
     private String passwd;
 
-    public Long getPkProfile() {
+    public UUID getPkProfile() {
         return this.idProfile;
     }
 
-    public void setPkProfile(Long idProfile) {
+    public void setPkProfile(UUID idProfile) {
         this.idProfile = idProfile;
     }
 
