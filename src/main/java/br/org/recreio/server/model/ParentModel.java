@@ -7,7 +7,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "Parent")
-@DiscriminatorColumn(name = "Parent")
 public class ParentModel extends ProfileModel {
 
     @Serial
@@ -18,7 +17,7 @@ public class ParentModel extends ProfileModel {
      * @implNote Relationship of One to Many
      **/
     @OneToMany(targetEntity = StudentModel.class)
-    @JoinColumn(name = "idStudent")
+    @JoinColumn(name = "id_parent")
     public List<StudentModel> student = new ArrayList<StudentModel>(); // One Parent as Many Dependents
 
     @Column(nullable = false, unique = true, length = 11)
@@ -46,9 +45,12 @@ public class ParentModel extends ProfileModel {
 
     @Override
     public String toString() {
-        return "Name: " + super.getName() +
-                "E-mail: " + super.getEmail() +
-                "Birthday: " + super.getBirthday();
+        return '{' + '\n' +
+                '\t' + "Name: " + super.getName() + '\n' +
+                '\t' + "E-mail: " + super.getEmail() + '\n' +
+                '\t' + "Birthday: " + super.getBirthday() + '\n' +
+                '\t' + "Students: " + this.getStudent() + '\n' +
+                '}';
     }
 
 }
