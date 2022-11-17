@@ -1,4 +1,4 @@
-package org.br.recreio.server;
+package br.org.recreio.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
